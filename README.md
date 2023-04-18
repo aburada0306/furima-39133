@@ -28,7 +28,7 @@
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
-| time_id            | integer    | null: false                    |
+| delivery_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
