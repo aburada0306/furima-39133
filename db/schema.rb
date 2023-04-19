@@ -13,12 +13,14 @@
 ActiveRecord::Schema.define(version: 2023_04_18_110727) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content"
+    t.string "title", null: false
+    t.integer "price", null: false
+    t.integer "postage_id", null: false
+    t.text "content", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "delivery_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,7 +33,7 @@ ActiveRecord::Schema.define(version: 2023_04_18_110727) do
     t.string "chinese_last", null: false
     t.string "kana_first", null: false
     t.string "kana_last", null: false
-    t.date "birth", null: false
+    t.date "birthday", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
