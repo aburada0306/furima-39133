@@ -31,7 +31,24 @@
 | delivery_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
+      t.string  :title,              null: false
+      t.integer :price,              null: false
+      t.integer :postage_id,         null: false
+      t.text    :content,            null: false
+      t.integer :category_id,        null: false
+      t.integer :status_id,          null: false 
+      t.integer :prefecture_id,      null: false 
+      t.integer :delivery_id,        null: false 
+      
 ### Association
+
+      t.string :nickname,           null: false
+      t.string :chinese_first,      null: false
+      t.string :chinese_last,       null: false
+      t.string :kana_first,         null: false
+      t.string :kana_last,          null: false
+      t.date   :birthday,           null: false
+
 
 - belongs_to :user
 - has_one   :order
