@@ -1,2 +1,2 @@
-class Item < ApplicationRecord
-end
+#class Item < ApplicationRecord
+#end
