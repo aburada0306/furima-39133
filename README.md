@@ -4,7 +4,7 @@
 | ------------------ | ------ | ----------------------  |
 | email              | string | null: false unique: true|
 | encrypted_password | string | null: false             |
-| nickname           | string | null: false             |
+| name               | string | null: false             |
 | chinese_first      | string | null: false             |
 | chinese_last       | string | null: false             |
 | kana_first         | string | null: false             |
@@ -31,11 +31,11 @@
 | delivery_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
+
 ### Association
 
 - belongs_to :user
 - has_one   :order
-
 
 
 ## orders テーブル
