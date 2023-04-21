@@ -11,7 +11,7 @@ class User < ApplicationRecord
    validates :chinese_first,:chinese_last,format: {with: /\A[ぁ-んァ-ヶ一-龥々ー]/, message: "Input full-width characters"},allow_blank:true
   
    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-   validates :password, format: {with: VALID_PASSWORD_REGEX, message: "is invalid. Include both letters and numbers",}
+   validates :password, format: {with: VALID_PASSWORD_REGEX, message: "is invalid. Include both letters and numbers"}
 
 
 end

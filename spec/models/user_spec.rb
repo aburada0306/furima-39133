@@ -7,18 +7,9 @@ end
 
   describe 'ユーザー新規登録' do
     context '新規登録できるとき' do
-      it 'passwordと確認用のpasswordが一致していると登録できる' do
-        @user.password = '12345a'
-        @user.password_confirmation = '12345a'
+      it '全て入力されていれば登録できる' do
         expect(@user).to be_valid
       end
-
-      it 'passwordが6文字以上だと登録できる' do
-        @user.password = '12345a6'
-        @user.password_confirmation = '12345a6'
-        expect(@user).to be_valid
-      end
-
      end
   context '新規登録できないとき' do
     it 'nameが空では登録できない' do
@@ -48,6 +39,20 @@ end
       @user.valid?
       expect(@user.errors.full_messages).to include "Password can't be blank"
     end
+    
+    it 'passwordと確認用のpasswordが不一致だと登録できない' do
+        @user.password = '12345a'
+        @user.password_confirmation = '12345b'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password confirmation doesn't match Password"
+      end
+
+    it 'passwordが6文字未満だと登録できない' do
+        @user.password = '1234a'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Password is too short (minimum is 6 characters)"
+      end
+
     it 'passwordが半角数字だけでは登録できない' do
       @user.password = '123456'
       @user.valid?
