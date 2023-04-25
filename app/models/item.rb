@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-  validates :title, :price, :content, :image, presence: true
+  validates :title, :price, :content, presence: true
+  validates :image, presence: true
   validates_inclusion_of :price, in: 300..9_999_999, message: 'is out of setting range', allow_blank: true
   validates :price, numericality: { with: /\A[0-9]+\z/, message: 'should be half-width numbers' }
   validates :category_id, :status_id, :postage_id, :prefecture_id, :delivery_id,
