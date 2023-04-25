@@ -10,8 +10,8 @@ RSpec.describe Item, type: :model do
       it '全て入力されていれば登録できる' do
         expect(@item).to be_valid
       end
-     end
-    context "新規投稿できないとき" do
+    end
+    context '新規投稿できないとき' do
       it 'imageが空では登録できない' do
         @item.image = ''
         @item.valid?
@@ -30,12 +30,12 @@ RSpec.describe Item, type: :model do
       it 'priceが300円以上9,999,999円以下でないと登録できない' do
         @item.price = '200'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price is out of setting range"
+        expect(@item.errors.full_messages).to include 'Price is out of setting range'
       end
       it 'priceは半角数値以外では保存できない' do
         @item.price = '３００あa'
         @item.valid?
-        expect(@item.errors.full_messages).to include "Price should be half-width numbers"
+        expect(@item.errors.full_messages).to include 'Price should be half-width numbers'
       end
       it 'contentが空では登録できない' do
         @item.content = ''
@@ -61,12 +61,12 @@ RSpec.describe Item, type: :model do
         @item.prefecture_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
-      end 
+      end
       it 'delivery_idが初期値では登録できない' do
         @item.delivery_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery can't be blank"
-      end 
+      end
     end
   end
 end
