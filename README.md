@@ -23,8 +23,8 @@
 | ------------------ | ------     | ------------------------------ |
 | title              | string     | null: false                    |
 | price              | integer    | null: false                    |
-| postage_id         | integer    | null: false                    |
 | content            | text       | null: false                    |
+| postage_id         | integer    | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
