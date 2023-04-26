@@ -130,8 +130,9 @@
      <% if @items.present? %>
       <% @items.each do |item| %>
         <li class='list'>      
+        <%= link_to item_path(item) do %>
         <div class='item-img-content'>
-        <%= link_to image_tag(item.image, class: "item-img"),item_path(item.id) %>
+          <%= image_tag item.image, class: "item-img" %>
         <% if item.present? %>
         <div class='sold-out'>
           <span>Sold Out!!</span>
@@ -150,6 +151,7 @@
             </div>
           </div>
         </div>
+        <% end %>
        </li>
       <% end %>
      <% else %>
