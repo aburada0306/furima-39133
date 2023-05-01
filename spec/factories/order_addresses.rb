@@ -7,6 +7,9 @@ FactoryBot.define do
     street{Faker::Address.street_address}
     building {Faker::Address.community }
     phone_number { Faker::Number.between(from: 9_999_999_999, to: 99_999_999_999) }
+    token {"tok_abcdefghijk00000000000000000"}
 
+    association :user
+    association :item
   end
 end
