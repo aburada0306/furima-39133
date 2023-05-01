@@ -12,7 +12,7 @@ RSpec.describe OrderAddress, type: :model do
       expect(@order_address).to be_valid
     end
 
-    it 'buildingは空でも保存できること' do
+    it '建物名は空でも保存できること' do
       @order_address.building = ''
       expect(@order_address).to be_valid
     end
@@ -24,27 +24,27 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Token can't be blank")
     end
-    it 'post_codeが空だと保存できないこと' do
+    it '郵便番号が空だと保存できないこと' do
       @order_address.post_code = ''
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
     end
-    it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
+    it '郵便番号が半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @order_address.post_code = '1234567'
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
     end
-    it 'prefectureを選択していないと保存できないこと' do
+    it '都道府県を選択していないと保存できないこと' do
       @order_address.prefecture_id = 1
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
     end
-    it '市区町村が空だと保存できないこと' do
+    it '市区町村を選択していないと保存できないこと' do
       @order_address.city = ""
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("City can't be blank")
     end
-    it '番地が空だと保存できないこと' do
+    it '番地を選択していないと保存できないこと' do
       @order_address.street = ""
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Street can't be blank")

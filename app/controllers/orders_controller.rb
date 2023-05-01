@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   def index    
     @item = Item.find(params[:item_id])
     @order_address = OrderAddress.new
-    if current_user.id == @item.user_id
+    if (current_user.id == @item.user_id) || @item.order.present?
       redirect_to root_path 
     end
   end
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     if @order_address.valid? 
     pay_item
     @order_address.save
-    
+
     return redirect_to root_path
     else
     render :index
