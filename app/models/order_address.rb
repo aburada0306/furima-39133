@@ -4,7 +4,7 @@ class OrderAddress
  
  with_options presence: true do
   validates :user_id,:item_id,:token
-  validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は(-)を含むようにしてください"}
+  validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は(-)を含む入力にしてください"}
   validates :phone_number, format: {with: /\A[0-9]{10,11}\z/, message: "は無効です"}
   validates :city,:street
   end

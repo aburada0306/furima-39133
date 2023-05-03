@@ -32,7 +32,7 @@ RSpec.describe OrderAddress, type: :model do
     it '郵便番号が半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @order_address.post_code = '1234567'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include('郵便番号は(-)を含むようにしてください')
+      expect(@order_address.errors.full_messages).to include('郵便番号は(-)を含む入力にしてください')
     end
     it '都道府県を選択していないと保存できないこと' do
       @order_address.prefecture_id = 1
